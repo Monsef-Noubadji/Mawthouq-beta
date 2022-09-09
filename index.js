@@ -2,6 +2,7 @@ const bodyparser = require('body-parser')
 const express = require('express');
 const authRoutes = require('./routes/authRoute');
 const cookieparser = require('cookie-parser')
+require('dotenv').config();
 const PORT = 4000
 
 const app = express();
