@@ -1,7 +1,7 @@
 {
   "name": "mawthouq",
   "version": "1.0.0",
-  "description": "",
+  "description": "online platform to find and evaluate trusted stores in Algeria",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "dev" : "nodemon index"
   },
   "author": "mawthouq",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@vonage/server-sdk": "^2.10.11",
     "body-parser": "^1.20.0",
