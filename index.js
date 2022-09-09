@@ -3,6 +3,7 @@ const express = require('express');
 const authRoutes = require('./routes/authRoute');
 const cookieparser = require('cookie-parser')
 require('dotenv').config();
+console.log(process.env)
 const PORT = 4000
 
 const app = express();
