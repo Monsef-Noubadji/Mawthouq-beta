@@ -1,0 +1,33 @@
+{
+  "name": "mawthouq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon index" 
+  },
+  "author": "mawthouq",
+  "license": "ISC",
+  "dependencies": {
+    "@vonage/server-sdk": "^2.10.11",
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.6",
+    "email-validator": "^2.0.4",
+    "express": "^4.17.3",
+    "firebase": "^9.8.2",
+    "firebase-admin": "^10.0.2",
+    "firebaseui": "^6.0.1",
+    "firesql": "^2.0.2",
+    "firestore-sequelize": "^0.8.0",
+    "json": "^11.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "nexmo": "^2.9.1",
+    "node-datetime": "^2.1.2",
+    "node-fetch": "^3.2.4",
+    "phone": "^3.1.18",
+    "request": "^2.88.2",
+    "twilio": "^3.77.0"
+  }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="300x300"
+      href="assets/img/Icon1-02-300x300.png"
+    />
+    <link rel="stylesheet" href="assets/css/auth.css" />
+    <script src="https://kit.fontawesome.com/cd80b326fb.js" crossorigin="anonymous"></script>
+    <script src="assets/js/auth.js"></script>
+    <title>سجل الدخول | تفقد بريدك الإلكتروني</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>تأكيد البريد الإلكتروني</h1>
+      </div>
+
+
+      <div id="login-form">
+          <div  id="actionElement" class="info">
+            <h3>لقد تم إنشاء حساب خاص بك</h3>
+            <p>تفقد بريدك الإلكتروني حتى تتمكن من إنهاء تسجيل الدخول</p>
+            <% if(email){ %>
+              <p><%= email %></p>
+            <% } %>
+            
+          </div>
+          
+      </div>
+
+    </div>
+  </body>
+</html>

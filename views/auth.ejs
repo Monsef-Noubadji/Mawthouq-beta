@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="300x300"
+      href="assets/img/Icon1-02-300x300.png"
+    />
+    <link rel="stylesheet" href="assets/css/auth.css" />
+    <script src="https://kit.fontawesome.com/cd80b326fb.js" crossorigin="anonymous"></script>
+
+    <script src="assets/js/auth.js"></script>
+    <title>سجل الدخول | أنشئ حسابك على موثوق</title>
+  </head>
+  <body>
+ 
+
+    <div class="container">
+      <div class="form-toggle">
+        <button id="login-toggle" onclick="toggleSignup()" >إنشاء حساب</button>
+        <button id="signup-toggle" onclick="toggleLogin()">تسجيل الدخول</button>
+      </div>
+
+      <!-- Login Form -->
+
+      <div id="login-form" >
+        <form action="/connexion" class="form-login" id="form-login" >
+          <div class="input-control">
+            <label id="emaillabelLogin" for="email-login" >البريد الاكتروني أو رقم الهاتف</label>
+            <input
+            onmouseleave="leavelabel(emaillabelLogin, emailLogin )" onclick="label(emaillabelLogin, emailLogin)" 
+              type="text" id="emailLogin" name="email-login" placeholder="البريد الإلكتروني أو رقم الهاتف" required />
+              <div class="email error log"></div>
+            </div>
+          <div class="input-control">
+            <label id="passwordlabelLogin" for="pass-login" >كلمة المرور</label> 
+            <input  onmouseleave="leavelabel(passwordlabelLogin, passwordLogin )" onclick="label(passwordlabelLogin, passwordLogin)" type="password" id="passwordLogin" name="pass-login" placeholder="كلمة المرور" required/>
+            <div class="password error log"></div>
+          </div>
+          <p style="margin-top: 0%; padding-top: 0%;"><a href="/password-reset">نسيت كلمة المرور ؟</a></p>
+
+          <button type="submit" class="btn login" id="loginSubmit">تسجيل الدخول</button>
+          <p> لا تملك حساب ؟<a style="cursor: pointer;" onclick="toggleSignup()">إنشاء حساب</a></p>
+          <hr />
+        </form>
+      </div>
+
+      <!-- Sign Up form -->
+
+      <div id="signup-form">
+        <form id="form" class="form"  action="/register">
+          <!-- //form inputs -->
+          <div class="input-control" >
+              <label id="labelemail" for="email" >البريد الاكتروني</label>
+            <input type="email" onmouseleave="leavelabel(labelemail, email )" onclick="label(labelemail, email)"  id="email" name="email" placeholder="البريد الإلكتروني" required
+            oninvalid="this.setCustomValidity('يجب أن تملأ هذه الخانة ')" oninput="setCustomValidity('')"/>
+            <div class="emaill error"></div>
+            <!-- <i class="fas fa-check-circle"></i> -->
+            <!-- <i class="fas fa-exclamation-circle"></i> -->
+          </div>
+          <div class="input-control">
+              <label for="username" id="labelname">اسم المستخدم</label>
+            <input type="text" onmouseleave="leavelabel(labelname, username )" onclick="label(labelname, username)" id="username" name="username" placeholder="إسم المستخدم" required oninvalid="this.setCustomValidity('يجب أن تملأ هذه الخانة ')" oninput="setCustomValidity('')"/>
+            <!-- <i class="fas fa-check-circle"></i> -->
+            <!-- <i class="fas fa-exclamation-circle"></i> -->
+            <div class="name error"></div>
+          </div>
+          <div class="input-control">
+              <label for="password" id="labelpwd">كلمة المرور</label>
+            <input type="password" onmouseleave="leavelabel(labelpwd, password )" onclick="label(labelpwd, password)"  id="pwd" name="password" placeholder="كلمة المرور" required oninvalid="this.setCustomValidity('يجب أن تملأ هذه الخانة ')" oninput="setCustomValidity('')"/>
+            <!-- <i class="fas fa-check-circle"></i> -->
+            <!-- <i class="fas fa-exclamation-circle"></i> -->
+          <div class="password1 error"></div>
+          </div>
+          <div class="input-control">
+              <label for="pwd-confirm" id="labelconfirm">تأكيد كلمة المرور</label>
+            <input type="password" onmouseleave="leavelabel(labelconfirm, pwdconfirm )" onclick="label(labelconfirm, pwdconfirm )"  id="pwdconfirm" name="pwd-confirm" placeholder="تأكيد كلمة المرور" required oninvalid="this.setCustomValidity('يجب أن تملأ هذه الخانة ')" oninput="setCustomValidity('')" />
+            <!-- <i class="fas fa-check-circle"></i> -->
+            <!-- <i class="fas fa-exclamation-circle"></i> -->
+          <div class="password2 error"></div>
+          </div>
+          <p>
+            بالضغط على<strong> إنشاء حساب </strong> فأنت توافق على
+            <a href="javascript:void(0)">شروط و أحكام الإستخدام</a>.
+          </p>
+          <button type="submit" id="signupSubmit" class="btn signup">إنشاء حساب</button>
+          
+          <hr />
+        </form>
+      </div>
+    </div>
+
+
+    <!-- // popup -->
+    <div class="popup" id="popup" style="display: none;">
+      <div class="popupContainer">
+        <h2>مشكل في الإتصال بالإنترنت</h2>
+        <p>تحقق من إتصالك بالإنترنت ثم أعد المحاولة مجددا</p>
+        <button onclick="hidepopup()" >حسنا</button>
+      </div>
+    </div>
+
+    <script>
+      const popup = document.getElementById('popup')
+
+      function hidepopup(){
+        popup.style.display = 'none'
+      }
+        function label(label, input){
+            document.getElementById(label.id).style.display = 'unset';
+            document.getElementById(label.id).style.bottom = '';
+            document.getElementById(input.id).style.borderBottom = '#00b2bc 2px solid'
+        }
+        function leavelabel(label, input){
+            console.log(label.id, input.id, 'frfr')
+            var label = document.getElementById(label.id);
+            var input = document.getElementById(input.id);
+            if(input.value == ''){
+                //  label.style.display = 'none';
+                 input.style.border = 'none';
+
+            }
+            else {
+                
+            }
+        }
+        const form = document.querySelector('.form'),
+        emailError = document.querySelector('.emaill.error');
+        nameError = document.querySelector('.name.error');
+        password1Error = document.querySelector('.password1.error');
+        password2Error = document.querySelector('.password2.error');
+        const btn = document.getElementById('submit')
+       
+        const formLogin = document.querySelector('.form-login');
+        const emailErrorLogin = document.querySelector('.email.error.log');
+        const passwordErrorLogin = document.querySelector('.password.error.log');
+
+
+        // ---------- signup -----------
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            //get values
+            const name = document.getElementById('username').value
+            const email = document.getElementById('email').value;
+            const password1 = document.getElementById('pwd').value;
+            const password2 = document.getElementById('pwdconfirm').value;
+
+
+            const nameinput = document.getElementById('username')
+            const emailinput = document.getElementById('email')
+            const password1input = document.getElementById('pwd')
+            const password2input = document.getElementById('pwdconfirm')
+           
+            const emaillabel = document.getElementById('labelemail')
+            const namelabel = document.getElementById('labelname')
+            const pwdlabel = document.getElementById('labelpwd')
+            const confirmlabel = document.getElementById('labelconfirm')
+
+            
+
+            var Btn = document.getElementById('signupSubmit');
+            Btn.style.backgroundColor = "#00b2bc"
+
+        try {
+            Btn.innerHTML ='<i style=" width: min-content; height: min-content;" class="fas fa-spinner fa-spin"></i>'
+            const res = await fetch('/signup', {
+                method: "POST",
+                body:JSON.stringify({name, email, password1, password2}),
+                headers: {'content-type': 'application/json'}
+            })
+            const data = await res.json();
+
+            // reset
+            // // reset errors
+             Btn.innerHTML = 'إنشاء حساب';
+             emailinput.style.border = 'none';
+             nameinput.style.border = 'none';
+             password1input.style.border = 'none';
+             password2input.style.border = 'none';
+
+             // reset margins
+             emailinput.style.marginBottom = '5px';
+             nameinput.style.marginBottom = '5px';
+             password1input.style.marginBottom = '5px';
+             password2input.style.marginBottom = '5px';
+
+            // //reset inputs style
+             emailError.innerHTML = "";
+             nameError.innerHTML = "";
+             password1Error.innerHTML = "";
+             password2Error.innerHTML = "";
+            // reset labels
+
+            emaillabel.style.bottom = "75 px"
+            namelabel.style.bottom = "75 px"
+            pwdlabel.style.bottom = "75 px"
+            confirmlabel.style.bottom = "75 px"
+             
+            // redirecting if there is no errors
+            if(data.created){
+               location.assign('/emailverification');
+            }
+            // displaying errors
+            if(data.field){
+                
+                for(let i = 0; i < data.field.length; i++){
+                  console.log('lll'+data)
+                   if(data.field[i] == 'popup'){
+                    popup.style.display ='block';
+                    popup.innerHTML = '<div class="popupContainer"><h2>' + data.message[i]+'</h2><p>'+data.solution[i] +'</p><button onclick="hidepopup("popup")">حسنا</button></div>';
+                     }
+                    if(data.field[i] == 'email'){
+                      console.log(data)
+                    emailError.innerHTML = '<p>' + data.message[i] + '</p>' ;
+                    emailinput.style.borderBottom = 'red 1px solid'
+                    emailinput.style.marginBottom = '10px';
+                    emaillabel.style.bottom = "105 px"
+                    }
+                    if(data.field[i] == 'name'){
+                    nameinput.style.borderBottom = 'red 1px solid'
+                    nameError.innerHTML = '<p>' + data.message[i] + '</p>' 
+                    nameinput.style.marginBottom = '10px';
+                    namelabel.style.bottom = "105 px"
+
+                    }if(data.field[i] == 'password1'){
+                    password1input.style.borderBottom = 'red 1px solid'
+                    password1input.style.marginBottom = '10px';
+                    password1Error.innerHTML = '<p>' + data.message[i] + '</p>' 
+                    pwdlabel.style.bottom = "105 px"
+                    
+                    } if(data.field[i] == 'password2') {
+                    password2input.style.borderBottom = 'red 1px solid'
+                    password2input.style.marginBottom = '10px';
+                    password2Error.innerHTML = '<p>' + data.message[i] + '</p>' 
+                    confirmlabel.style.bottom = "105 px"
+                    }
+                    
+                }
+            }
+            
+        } catch (error) {
+            
+        }
+        });
+
+
+
+        // ---------- login -----------
+
+
+        formLogin.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            //get values
+            const email = document.getElementById('emailLogin').value;
+            const password = document.getElementById('passwordLogin').value;
+
+            
+            const emailinput = document.getElementById('emailLogin')
+            const passwordinput = document.getElementById('passwordLogin')
+           
+            const emaillabel = document.getElementById('emaillabelLogin')
+            const pwdlabel = document.getElementById('passwordlabelLogin')
+
+            
+
+            var Btn = document.getElementById('loginSubmit');
+            Btn.style.backgroundColor = "#00b2bc"
+
+
+        try {
+          Btn.innerHTML ='<i style=" width: min-content; height: min-content;" class="fas fa-spinner fa-spin"></i>'
+            const res = await fetch('/login', {
+                method: "POST",
+                body:JSON.stringify({ email, password}),
+                headers: {'content-type': 'application/json'}
+            })
+            const data = await res.json();
+            console.log(data)
+            // reset
+            // // reset errors
+            Btn.innerHTML = 'تسجيل الدخول';
+             emailinput.style.border = 'none';
+             passwordinput.style.border = 'none';
+
+             // reset margins
+             emailinput.style.marginBottom = '5px';
+             passwordinput.style.marginBottom = '5px';
+
+            // //reset inputs style
+             emailErrorLogin.innerHTML = "";
+             passwordErrorLogin.innerHTML = "";
+            // reset labels
+
+            emaillabel.style.bottom = "75 px"
+            pwdlabel.style.bottom = "75 px"
+            
+
+            
+            
+            // getting response from the server
+            if(data.logged == 'connected'){
+               location.assign('/');
+            }
+
+            // getting response from the server
+            if(data.logged == 'emailNotVerified'){
+               location.assign('/emailverification', { "email": data.email});
+            }
+
+            // getting response from the server
+            else if(data.logged == 'noPhoneNumber'){
+              console.log(data.logged)
+              location.assign('/validation');
+            }
+
+            
+
+            // displaying errors
+            else if(data.field){
+                
+                for(let i = 0; i < data.field.length; i++){
+                  if(data.field[i] == 'popup'){
+                    popup.style.display ='block';
+                    popup.innerHTML = '<div class="popupContainer"><h2>' + data.message[i]+'</h2><p>'+data.solution[i] +'</p><button onclick="hidepopup()">حسنا</button></div>';
+                    }
+                    if(data.field[i] == 'email'){
+                    emailErrorLogin.innerHTML = '<p>' + data.message[i] + '</p>' ;
+                    emailinput.style.borderBottom = 'red 1px solid'
+                    emailinput.style.marginBottom = '10px';
+                    emaillabel.style.bottom = "105 px"
+                    }if(data.field[i] == 'password'){
+                    passwordinput.style.borderBottom = 'red 1px solid'
+                    passwordinput.style.marginBottom = '10px';
+                    passwordErrorLogin.innerHTML = '<p>' + data.message[i] + '</p>' 
+                    pwdlabel.style.bottom = "105 px"
+                    
+                    }
+
+                    
+                }
+            }
+            
+            
+        } catch (error) {
+            
+        }
+        });
+            
+       
+        
+    </script>
+  </body>
+</html>

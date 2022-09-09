@@ -1,0 +1,95 @@
+<footer class="footer">
+     <div class="footer-initial">
+        <div class="mawthouq-desc">
+            <img class="footer-img" src="assets/img/LogoSite-01.png" alt="mawthouq logo"/>
+            <div class="mawthouq-infos">
+                <h6 class="footer-infos">Bureau 3 Centre Dubai, Cité Boushaki Lot 37 1er étage , Bab Ezzouar Alger</h6>
+                <h6 class="footer-infos"> +213(0)55 303 27 37</h6>
+                <h6 class="footer-infos">+213(0)55 303 27 37</h6>
+                <h6 class="footer-infos">contact@mawthouq.org</h6>
+            </div>
+            <p>Mawthouq is the #1 website in Algeria to find trusted stores
+                and shopkeepers around the country . It offers easy navigation
+                and searching in order to deliver the best experience.</p>
+        </div>
+        <div class="report">
+            <form id="form-id" class="form" action="/">
+                
+                <h3 style="color:#F4F4F4; text-align: right; font-weight: 600;">تريد تقديم إستفسار ؟ راسلنا</h3>
+                <div class="footer-credentials">
+                    <div class="note error">
+                        
+                        
+                    </div>
+                    <div class="note success">
+                        
+                    </div>
+                    <input type="text" name="name"  placeholder="الإسم"id="name" />
+                    <input type="email" name="email"  placeholder="البريد الإلكتروني"id="email"/></div>
+                    <textarea id="message-id" class="field" placeholder="أكتب رسالتك هنا" rows="5" cols="30"></textarea>
+                    <button id="submit" type="submit"> ارسال </button>
+            </form>
+        </div>
+    </div>
+    <div class="copyright">Copyright © 2022 , Mawthouq</div>
+    </footer>
+
+
+    <script>
+        const form = document.querySelector('.form'),
+        errors = document.querySelector('.error');
+        done = document.querySelector('.success');
+        const btn = document.getElementById('submit')
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            //get values
+            const name = document.getElementById('name').value
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message-id').value;
+
+
+
+            try {
+                btn.innerHTML = '<i style=" width: min-content; height: min-content;" class="fas fa-spinner fa-spin"></i>';
+                const res = await fetch('/feedback', {
+                method: "POST",
+                body:JSON.stringify({name, email, message}),
+                headers: {'content-type': 'application/json'}
+            })
+            const data = await res.json();
+            console.log(data)
+            // reset value
+            errors.style.display = 'none';
+            errors.innerHTML = '';
+            done.style.display = 'none';
+            done.innerHTML = '';
+
+            btn.innerHTML = 'ارسال';
+            if(data.error) {
+                errors.style.display = 'flex'
+                errors.innerHTML = '<i class="fas fa-times-circle"></i><div class="content-message"><h3>' + data.error.header+'</h3><p>'+ data.error.content+'</p> </div><div class="delete" onclick="hide()">x</div>'
+                btn.innerHTML = 'ارسال'
+            }
+            else {
+                
+                form.reset();
+                done.style.display = 'flex';
+                done.innerHTML = '<i class="fas fa-check-circle"></i><div class="content-message"><h3>' + data.data.header+'</h3><p>'+ data.data.content+'</p> </div><div class="delete" onclick="hide()">x</div>'
+                btn.innerHTML = 'ارسال';
+                
+            }
+            } catch (error) {
+                console.log(error)
+            }
+
+        });
+            
+        function hide(){
+            errors.style.display = 'none';
+            done.style.display = 'none';
+
+        }
+        
+    </script>

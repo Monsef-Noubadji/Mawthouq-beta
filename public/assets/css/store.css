@@ -1,0 +1,847 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Quicksand");
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+
+body{
+    padding-bottom: 50px;
+}
+
+/* ----  header ---- */
+
+.header{
+    height: 80px;
+    width: 100%;
+    background-color: beige;
+}
+.storeHead{
+    margin-bottom: 0px;
+}
+.bgimage{
+    width: 100%;
+    height: 350px;
+
+    border-radius: 30px;
+    position: relative;
+}
+.bgimage img{
+    height: 350px;
+    width: 100%;
+    border-radius: 30px ;
+}
+#particles-js{
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    position: absolute;
+    top: 0; left: 0;
+
+    background: rgb(21, 184, 184); 
+     /* opacity: 1; */
+}
+.storeinfo{
+    width: 90%;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: -100px 5%;
+    position: absolute;
+    top: 68%;
+}
+.profileimg{
+    height: 130px;
+    width: 130px;
+    /* background-image: url("../img/starbucks-franchise.jpeg"); */
+    /* background-size: cover; */
+    /* background-image: ; */
+    /* background-repeat: no-repeat; */
+    border-radius: 25px;
+    box-shadow:  2px 4px 4px #00000015;
+}
+
+.profileimg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.profileinfo{
+    width: 70%;
+    text-align: right;
+    padding: 0% 2%;
+}
+.profileinfo h1{
+    color: white;
+    margin: 0%;
+    padding: 0%;
+    margin: 15px 0px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    font-weight:500;
+}
+.rating{
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: right;
+   
+}
+.rating p{
+    color: rgb(230, 230, 230);
+    font-size: 18px;
+    margin: 0%;
+    padding: 2px;
+    font-family:"Tajawal", sans-serif ;
+}
+.rating i{
+    padding:2px;
+    font-size: 18px;
+    color: rgb(216, 216, 33);
+}
+.profileinfo h3{
+    color: rgba(0, 0, 0, 0.747);
+    font-size: 18px;
+    margin: 0%;
+    padding: 20px 10px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+}.profileinfo h3 i{
+    padding-right: 5px;
+}
+.profileactions{
+    width: 20%;
+    margin-top: 20px;
+}
+
+.profileactions #shareBtn{
+    color: white;
+    border: 2px white solid;
+    border-radius: 50px;
+    padding: 8px 10px;
+    background: none;
+    font-size: medium;
+    font-family: 'Tajawal', sans-serif;
+    margin: 5px;
+}.profileactions #rateBtn{
+    margin: 5px;
+    color: #00B2BC;
+    border: 2px white solid;
+    border-radius: 50px;
+    padding: 8px 15px;
+    background: white;
+    font-size: medium;
+    font-family: 'Tajawal', sans-serif;
+}.profileactions #reclamation{
+    width: 70%;
+    margin: 5px;
+    margin-top: 30px;
+    color: #00B2BC;
+    border: 2px #00B2BC solid;
+    border-radius: 5px;
+    padding: 8px 15px;
+    background:white;
+    font-size:large;
+    text-align: center;
+    font-family: 'Tajawal', sans-serif;
+}.profileactions #reclamation i{
+    padding: 0px 5px;
+}
+
+.main{
+    display: flex;
+    flex-direction: row-reverse;
+}
+/* --- main body --- */
+
+.mainBody{
+    float: right;
+    width: 50%;
+    margin: 100px 7.4% 5px 1.1%;
+}
+
+.card{
+    background-color: rgb(241, 241, 241);
+    width: 95%;
+    padding: 15px 2.5%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.card h1{
+    color: black;
+    text-align: right;
+    font-size: larger;
+    font-weight: bold;
+    font-family: "Tajawal", sans-serif;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #00B2BC;
+
+}
+
+
+.description p{
+    
+    color: rgba(0, 0, 0, 0.658);
+    text-align: right;
+    font-size: medium;
+    font-weight: 600;
+    font-family: "Tajawal", sans-serif;
+
+}
+
+.storeLocation{
+    height: 200px;
+    background-color: #00b3bc5b;
+    border-radius: 5px;
+}
+.marginBody .ratings{
+    display: flex;
+    flex-direction: column;
+}
+.mainBody .ratings {
+    display: none;
+}
+
+.rate{
+    margin: 5%;
+    width: 90%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.rate h2{
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
+    margin: 0%;padding: 0%;
+    font-family: "Tajawal", sans-serif;
+    width: 100%;
+
+}
+.rate h3{
+    text-align: center;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.822);
+    margin: 0%; padding: 5% 0px;
+    padding-top: 1%;
+    font-family: 'Tajawal', sans-serif;
+    width: 100%;
+}
+.stars{
+    text-align: center;
+    width: 100%;
+}
+.stars i{
+    color: rgb(255, 234, 113);
+    font-size: 20px;
+}
+.services{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #00B2BC;
+    width: 80%;
+    margin: 0px 10%;
+
+}
+.service{
+    width: 90%;
+    margin: 0% 5%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-self: center;
+}
+.service p{
+    width: 10%;
+    font-size: medium;
+    font-family: 'Tajawal', sans-serif;
+
+}
+.level{
+    align-self: center;
+    width: 80%;
+    height: 8px;
+    background-color: #02595e;
+    border-radius: 5px;
+}
+.sousLevel{
+    align-self: center;
+    width: 20%;
+    height: 8px;
+    background-color: #00B2BC;
+    border-radius: 5px;
+}
+
+.comment{
+    padding: 10px 40px;
+
+}
+.commentHeader{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.commentProfile{
+    width: 40%;
+    text-align: right;
+}
+.commentProfile img{
+    width: 70px;
+    height: 70px;
+    float: right;
+    border-radius: 5px;
+}
+.commentProfile h2{
+    width: max-content;
+    float: right;
+    text-align: right;
+    margin: 0%; padding: 0%;
+    margin-top: 0px;
+    margin-bottom: 3px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 22px;
+    margin-right: 10px;
+    color: #00B2BC;
+    font-weight: bolder;
+}.commentProfile p{
+    font-family: 'Tajawal', sans-serif;
+    font-size: medium;
+    width: max-content;
+    float: right;
+    text-align: right;
+    margin: 0%;padding: 0%;
+    margin-right: 10px;
+    font-weight: 400;
+
+}
+.commentRate{
+    align-self: center;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+.commentRate h3{
+    font-family: 'Tajawal', sans-serif;
+    font-size: larger;
+    float: left;
+    text-align: left;
+    margin: 0%;padding: 0% 10px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.76);
+}.commentRate .stars{
+    font-family: 'Tajawal', sans-serif;
+    font-size: medium;
+    float: left;
+    text-align: left;
+    margin: 0%;padding: 0%;
+    font-weight: 400;
+    width: max-content;
+    align-self: center;
+}.commentText{
+    padding: 20px 0px;
+    font-size: 15px;
+    color: black;
+    font-family: "Tajawal", sans-serif;
+    text-align: right;
+    border-bottom: 0.5px solid #00b3bcaf;
+}
+
+
+
+
+/* --- margin body --- */
+
+
+.marginBody{
+    width: 32%;
+    margin: 100px 0.1% 52px 7.4%;
+}
+.infos .info{
+    text-align: right;
+    color: rgba(0, 0, 0, 0.705);
+    font-size: large;
+    font-weight: lighter;
+    font-family: 'Acme', sans-serif;
+    margin-top: 15px;
+    padding-right: 20px;
+
+
+}
+.infos .info i{
+    color: #00B2BC;
+    margin-left: 20px;
+}
+.infos h2{
+    text-align: right;
+    color: rgb(0, 0, 0);
+    font-size: larger;
+    font-weight: medium;
+    font-family: 'Tajawal', sans-serif;
+    margin-bottom: 7px;
+    margin-top: 30px;
+    padding-right: 20px;
+}
+.social{
+    text-align: right;
+    padding-right: 20px;
+}
+.social i{
+    color: #00B2BC;
+    font-size: 25px;
+    margin: 5px;
+    cursor: pointer;
+}
+.messageHeader{
+    width: 90%;
+    margin: 0% 5%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: right;
+}
+.commentProfile{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 60%;
+}
+
+.messageHeader img{
+    width: 80px;
+    height: 80px;
+    border-radius: 10%;
+    width: 30%;
+    
+
+}
+.messageHeaderContent{
+    width: 70%;
+}
+.messageHeaderContent h2{
+    text-align: right;
+    color: #00B2BC;
+    font-size: larger;
+    font-weight: medium;
+    font-family: 'Acme', sans-serif;
+    margin-right: 10%;
+    margin-bottom: 0%;
+    width: 90%;
+}.messageHeaderContent p{
+    text-align: right;
+    color: #000000;
+    font-size:medium;
+    font-weight: medium;
+    font-family: 'Tajawal', sans-serif;
+    width: 90%;
+    margin: 7px 10% 10px 0px;
+} 
+.commentProfile img{
+    width: 30%;
+    box-shadow: 0px 2px 5px 2px #00000015;
+
+}
+.commentMsg{
+    height: 70px;
+    width: 50%;
+    padding-top: 10px;
+    
+}
+ .commentMsg h2{
+    text-align: right;
+    color: #00B2BC;
+    font-size: larger;
+    font-weight: medium;
+    font-family: 'Acme', sans-serif;
+    margin-right: 10%;
+    margin-bottom: 0%;
+    width: 90%;
+}.commentMsg p{
+    text-align: right;
+    color: #000000;
+    font-size:medium;
+    font-weight: medium;
+    font-family: 'Tajawal', sans-serif;
+    margin-right: 10%;
+    margin-top: 0%;
+    padding-top: 0%;
+} 
+.message form{
+    width: 96%;
+    margin: 2%;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+
+}
+.message form input{
+    width: 90%;
+    padding: 3% 5%;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    color: rgba(0, 0, 0, 0.678);
+    border-radius: 10px;
+    margin: 2% 0%;
+    text-align: right;
+    font-size: larger;
+    font-family: 'Tajawal', 'Acme', sans-serif;
+
+}.message form textarea{
+    width: 90%;
+    padding: 3% 5%;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    color: rgba(0, 0, 0, 0.678);
+    border-radius: 10px;
+    margin: 2% 0%;
+    text-align: right;
+    font-size: larger;
+    font-family: 'Tajawal', 'Acme', sans-serif;
+}
+.message form input[type=submit]{
+   text-align: center;
+   color: #00B2BC;
+   background-color: white;
+   width: 100%;
+   font-size: larger;
+   font-weight: bolder;
+   /* border: 1px solid #00B2BC;
+   border: none; */
+}
+
+
+/* --rating-- */
+
+.feedback{
+   
+}
+.ratingQuality {
+    display: flex;
+    flex-direction: row-reverse;
+    align-self: center;
+}
+
+
+    
+    .ratingQuality > input{
+     display:none;
+    }
+    
+    .ratingQuality > label {
+    position: relative;
+    width: max-content;
+    font-size: 40px;
+    color: #FFD700;
+    cursor: pointer;
+    }
+    
+    .ratingQuality > label::before{
+    content: "\2605";
+    position: absolute;
+    opacity: 0;
+    }
+    
+    .ratingQuality > label:hover:before,
+    .ratingQuality > label:hover ~ label:before {
+    opacity: 1 !important;
+    }
+    
+    .ratingQuality> input:checked ~ label:before{
+    opacity:1;
+    }
+    
+    .ratingQuality:hover > input:checked ~ label:before{ 
+    opacity: 0.4;
+     }
+
+.quality{
+    display: flex;
+    flex-direction:column;
+    width: 40%;
+    margin: 2% 5%;
+}
+.quality p{
+    color: #00B2BC;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Tajawal', sans-serif;
+    text-align: right;
+    margin-bottom: 0px;
+}
+.feedback form{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    
+}
+.somme{
+    width: 25%;
+    height: max-content;
+    margin: 5%;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.329);
+    border-radius:20px ;
+    align-self: center;
+}
+.somme h2{
+    font-family: 'Tajawal', sans-serif;
+    font-size: larger;
+    color: #000000;
+    text-align: center;
+    padding: 5px 0px;
+}
+.somme h3{
+    font-family: 'Tajawal', sans-serif;
+    font-size: 50px;
+    color: #00B2BC;
+    text-align: center;
+    padding: 2px 0px;
+    margin: 0%;
+}
+.rating-sections{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.rating-text{
+    width: 90%;
+    margin: 2% 5%;
+}.rating-text textarea{
+    width: 94%;
+    padding: 3%;
+    border-radius: 10px;
+    color: gray;
+    text-align: right;
+    font-family: "Tajawal", sans-serif;
+    font-size: medium;
+}.rating-text input{
+    width: 100%;
+    padding: 3% 0%;
+    border-radius: 10px;
+    color: #00B2BC;
+    text-align: center;
+    font-family: "Tajawal", sans-serif;
+    font-size: larger;
+    border: 1px gray solid;
+    background-color: #fff;
+    font-weight: 600;
+}
+
+
+
+
+@media only screen and (max-width: 800px) {
+    
+    
+    
+
+/* --- header ---  */
+.header{
+    height: 80px;
+    width: 100%;
+}
+
+.bgimage{
+    height: 200px;
+}
+.bgimage img{
+    height: 200px;
+}
+
+.storeinfo{
+    position: absolute;
+    width: 90%;
+    display: flex;
+    flex-direction: row-reverse;
+    top: 320px; left: 0;
+}
+.profileimg{
+    height: 110px;
+    width: 230px;
+}
+.profileinfo{
+    width: 70%;
+    text-align: right;
+    padding: 0% 2%;
+}
+.profileinfo h1{
+    margin: 0%;
+    padding: 0%;
+    margin: 5px 0px;
+    font-size: 23px;
+}
+.rating p{
+    display: none;
+}
+.rating i{
+    font-size: 15px;
+}
+.profileinfo h3{
+    font-size: 13px;
+    text-align: left;
+    position: absolute;
+    top: 60px;
+    left: 0%;
+    width: 60%;
+}
+.profileactions{
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+}
+.profileactions button span{
+    display:none;
+}
+.profileactions #shareBtn{
+    font-size: smaller;
+    height: max-content;
+    padding: 6px 8px;
+}.profileactions #rateBtn{
+    font-size: smaller;
+    height: max-content;
+    padding: 6px 8px;
+}
+.profileactions #reclamation{
+    /* display: none; */
+    padding:6px 8px ;
+    height: max-content;
+    background: white;
+    color: #00B2BC;
+    border-color: white;
+    /* border: none; */
+    width: max-content;
+    margin-top: 5px;
+    border-radius: 50px;
+    font-size: smaller;
+}.profileactions #reclamtaion span{
+    display: none;
+    /* margin-top: 0cm; */
+
+}
+ /* --- main body --- */
+
+.mainBody{
+    width: 90%;
+    margin:80px 5%;
+    margin-bottom: 0px;
+}
+.ratings{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.rate{
+    width: 90%;
+    margin: 0% 5%;
+}
+.services{
+    width: 90%;
+    margin: 5%;
+    border: none;
+    border-top: 1px solid #00B2BC;
+}
+
+.commentHeader{
+    flex-direction: row-reverse;
+}
+.commentProfile{
+    width: 100%;
+}
+.commentProfile h2{
+    font-size: 20px;
+}
+.commentRate{
+    /* margin-top: 10px; */
+    align-self: center;
+}
+
+ /* --- margin body --- */
+
+.marginBody{
+    width: 90%;
+    margin: 1% 5%;
+    float: left;
+
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    
+
+}
+.comment {
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+
+}
+@media only screen and (max-width: 740px){
+    .feedback form{
+        flex-direction: column;
+    }
+    .rating-sections{
+        width: 90%;
+        margin: 1% 5%;
+        text-align: center;
+    }
+    .somme{
+        width: 60%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .commentHeader{
+        flex-direction: row-reverse;
+
+    }
+    .commentHeader .stars i{
+        display: none;
+
+    }
+    .commentHeader .stars :nth-child(1){
+        display: unset;
+        align-self: center;
+    }
+    .commentRate{
+        width: 20%;
+        align-self: center;
+    }
+    .commentProfile{
+        width: 80%;
+    }
+    .description P{
+        padding: 5px 10px;
+    }
+    .mainBody .ratings{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .marginBody .ratings{
+        display: none;
+    }
+    
+    
+}
+@media only screen and (max-width: 500px){
+    
+    .rating-sections{
+        flex-direction: column;
+        width: 80%;
+        margin: 2% 10%;
+    }
+    .quality{
+        width:80%;
+        margin: 0% 10%;
+        text-align: center;
+        
+    }
+    
+}
+
+
+
+
+
+
+
+
+

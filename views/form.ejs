@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- --- create store --- -->
+    <form style="display: flex; flex-direction: column; " action="/create" method="POST">
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="email" placeholder="email">
+        <input type="text" name="desc" placeholder="desc">
+        <input type="number" name="phone" placeholder="phone">
+        <input type="text" name="rating" placeholder="rating">
+        <input type="number" name="rater" placeholder="rater">
+        <input type="number" name="br_number" placeholder="br_number">
+        <input type="text" name="loc_s" placeholder="loc_s">
+        <% var wil = '' ; %>
+        <select name="wilaya" onchange="showC(value)" >
+            <% for( let i = 0 ; i < wilaya.length ; i++) {  %>
+            <option >choose wilaya</option>
+            <option  value="<%= matr[i] %>"><%= matr[i] %> <%= wilaya[i] %>  </option>
+            <% wil = wilaya[i] }  %>
+            
+          </select>
+          <select name="commune" id="com"></select>
+        <input type="text" name="loc_t" placeholder="loc_t">
+        <label for="category">choose category</label>
+        <select name="category">
+            <% for( let i = 0 ; i < categ.length ; i++) {  %>
+            <option value="<%= categ[i] %>"><%= categ[i] %></option>
+            <% }  %>
+            
+          </select>
+        <input type="submit" name="" id="">
+    </form>
+
+
+    <!-- --- create user --- -->
+
+    
+
+    <script>
+        var com = document.getElementById('com')
+        function showC(wilaya){
+        console.log(wilaya)
+
+            try {
+                const res = fetch('/commune', {
+                method: "POST",
+                body:JSON.stringify({wilaya}),
+                headers: {'content-type': 'application/json'}
+            }).then((res) => {
+                const data = res.json().then((data) => {
+                console.log(data);
+                com.innerHTML = '';
+                for(let i = 0; i < data.commune.length; i++){
+                    com.innerHTML += '<option  value="'+data.commune[i]+'" >  ' + data.commune[i]+ ' </option>';
+                }
+
+                })
+                
+            })
+            
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    </script>
+</body>
+</html>

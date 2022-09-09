@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="300x300"
+      href="assets/img/Icon1-02-300x300.png"
+    />
+    <link rel="stylesheet" href="assets/css/auth.css" />
+    <script type="text/javascript" src="assets/js/experiments.js"></script>
+<script type="text/javascript" src="assets/js/action.js"></script>
+<script type="text/javascript">
+fireauth.oob.OobHandler.initialize('#actionElement');
+</script>
+    <script src="https://kit.fontawesome.com/cd80b326fb.js" crossorigin="anonymous"></script>
+
+    <script src="assets/js/auth.js"></script>
+    <title>سجل الدخول | <%=mode%></title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 id="mode"><%=mode%></h1>
+      </div>
+
+      <!-- Login Form -->
+      <div on id="actionElement"></div> 
+
+
+      <div id="login-form"  class="actionContainer">
+          <!-- <div on id="actionElement"></div> -->
+          <div class="btns">
+          <button onclick="location.href='/'"   id="homebtn" >الصفحة الرئيسية</button>
+          <button onclick="location.href='/register'" type="submit" id="loginbtn">تسجيل الدخول</button>
+          </div>
+      </div>
+
+    </div>
+
+    <script>
+      
+      
+          
+     
+      
+      
+    </script>
+  </body>
+</html>

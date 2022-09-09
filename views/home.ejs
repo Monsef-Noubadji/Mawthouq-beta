@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+    <title>Mawthouq - The #1 Plateform to find trusted stores in Algeria</title>
+    <link rel="icon" type="image/png" sizes="300x300" href="assets/img/Icon1-02-300x300.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- <link rel="stylesheet" href="assets/OwlCarousel2-2.3.4/src/scss/">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css"> -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;900&display=swap" rel="stylesheet">
+    <script src="assets/js/counter.js" defer></script>
+    <!-- <script src="assets/js/carousel.js"></script> -->
+    <!-- <script src="https://kit.fontawesome.com/8efac99124.js" crossorigin="anonymous"></script> -->
+    <script src="https://kit.fontawesome.com/cd80b326fb.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+    <!-- header -->
+    <%- include('partials/header'); -%>
+
+    <!-- home page content -->
+    <section class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>" حيث يمكنك أن تجد الثقة"</h1>
+            </div>
+            <div class="col-md-12">
+                <h2>اعثر على أزيد من  <%= StoreN %> متجر في كافة أنحاء البلد</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="search">
+                    <form class="search-form" method="post" action="search?q=">
+                        <input type="submit" value="بحث">
+                      <input type="text" placeholder="البحث عن المحلات التجارية حسب الفئة والاسم .. الخ">
+                    </form>
+                  </div>
+            </div>
+        </div>
+        <div class="infos">
+            <div class="tips">
+                <img class ="icon-size" src="assets/img/DrawKit Vector Illustration Project Manager (15).png" alt="img1">
+                <p class="direction">جاءت الفكرة من غياب الثقة 
+                    بين الزبون والمتاجر لاسيما الآن
+                </p>
+            </div>
+            
+            <div class="tips">
+                <img class ="icon-size icon-size-2nd icon-common" src="assets/img/DrawKit Vector Illustration Project Manager (16).png" alt="img1">
+                <p class="direction direction-2nd">التعامل مع مختلف المتاجر و ايجاد ما تبحث عنه قد يكون صعبا
+                </p>
+            </div>
+            
+            <div class="tips">
+                <img class ="icon-size icon-size-3rd icon-common" src="assets/img/DrawKit Vector Illustration Project Manager (13).png" alt="img1">
+                <p class="direction">لا بد من مراعاة بعض العوامل
+                    في إختيار المتجر المناسب و أهمها الثقة
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="explore-store">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>"إكتشِف أبرز المتاجر حولك</h1>
+            </div>
+            <div class="col-md-12">
+                <h2>المتاجر المتميزة بجودة خدماتها و مصداقيتنا لا بد أن تظهر أولاً</h2>
+            </div>
+        </div>
+
+
+
+    <%let k = 0; for(let s = 0; s < 3 ; s++ ){  %>
+    <section id="<%= cards[s] %>" class="card-container">
+    
+        <% for( let i = 0 ; i < 3 ; i++ ){ %>
+    <div class="card">
+        <div class="card-cover">
+            <img src="assets/img/starbucks-franchise.jpeg" alt="img-cover" class="img-cover">
+        </div>
+        <div class="card-content">
+        <div class="details">
+            <div class="first-details">
+        <% if(records[k].validation == true){  %>
+        <h3><%= records[k].name %> <i style="font-size: 20px; color: rgb(30, 101, 235);" class="fas fa-check-circle"></i></h3>
+        <% } else {  %>
+            <h3><%= records[k].name %></h3>
+        <% }  %>
+     <div class="location"><i class="fas fa-map-marker-alt"></i><h4><strong><%= records[k].loc_t %>, <%= records[k].loc_w %></strong></h4></div> 
+     <div class="phone"><span><i class="fas fa-phone-alt"></i></span><h4><%= records[k].phone %></h4></div> 
+        <div class="category">
+            <!-- <span><img class = "icon-dimensions third-ic-size" src="assets/icons/technical-support.png"></span><h4>IT & Software</h4> -->
+            <span><i class="fas <%= icons[i] %>"></i></span><h4><%= records[k].category %></h4>
+            
+        </div>
+            </div>
+        <div class="more-details">
+            <a class="explore"href='/store/<%= id[i] %>'>إكتشف المتجر</a>
+            <div class="rating" style="display: block;">
+                <%let s = 1; for( s ; s <= records[k].rating ; s++ ){ %>
+                <i class="fas fa-solid fa-star" style="color: yellow"></i>
+
+                <% } %>
+                <% for( j = 0; j < 6 - s ; j++ ){ %>
+                <i class="fas fa-solid fa-star" style="color: gainsboro"></i>
+
+                <% } %>
+            
+                
+            </div>
+            <h4 class="ratingCount"><strong><%= records[k].rating %></strong></h4>
+          <h4 class="ratingCount"><strong>  <%= records[k].rater %> reviews</strong></h4>
+          
+        </div> 
+        </div>
+        </div>
+
+    </div>
+    <% k++; } %>
+    
+
+   
+    
+    </section>
+    <% } %>
+
+    <div class="slide-btn">
+    <h1 id="btn1" onclick="show(btn1)">.</h1>
+    <h1 id="btn2" onclick="show(btn2)">.</h1>
+    <h1 id="btn3" onclick="show(btn3)">.</h1>
+
+    </div>
+ 
+
+        
+    </section>
+    <section class="explore-categories">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>"لست متأكدا؟ تفقد مختلف التصنيفات</h1>
+            </div>
+            <div class="col-md-12">
+                <h2>استكشِف مختلف تصنيفات المتاجر بحسب المجال</h2>
+            </div>
+        </div>
+        <div class="categories">
+            <div class="row-category" >
+                <% let i = 0; for( i ; i < 8 ; i++ ){ %>
+
+                    <div class="ctgr-box" onclick="location.href='/category/<%= categories[i].name%>'   ;">
+                        <i class="fa <%= categories[i].icon %>"></i>
+                        <a style="text-decoration: none;font-family: SANS-SERIF;" href="category/<%= categories[i].name%>" ><%= categories[i].name %></a>
+                    </div>
+                    
+                    <%   } %>
+            </div>   
+        </div>
+    </section>
+
+<section class="stats">
+    <section class="counter-container">
+        <div class="part-1">
+            <div class="counter">
+                <h3 data-target="58" class="count">0</h3>
+                <h6>ولاية</h6>
+            </div>
+            <div class="counter">
+                <h3 data-target="99" class="count">0</h3>
+                <h6>شركاء</h6>
+            </div>
+        </div>
+        <div class="part-2">
+            <div class="counter">
+                <h3 data-target="99" class="count">0</h3>
+                <h6>ألف مستخدم</h6>
+            </div>
+            <div class="counter">
+                <h3 data-target="<%= StoreV %>" class="count">0</h3>
+                <h6>متجر موثوق</h6>
+            </div>
+        </div>
+    </section>
+</section>
+
+<section class="application">
+    <div class="initial-container">
+        <img src="assets/img/phone.png" alt="mobile phone" class="mobile">
+        <div class="informations">
+            <h4 class="app-desc">تطبيق موثوق , مميزات المنصة الأولى في الجزائر محمولة معك أينما ذهبت"</h4>
+            <h5 class="app-desc-2">متوفر الآن على بلاي ستور و آبل ستور !</h5>
+            <div class="app-download">
+            <a href="https://play.google.com"> <img src="assets/img/playstore.png" alt="play.google.com" class="download" style="width:12rem;"></a>
+            <a href="https://www.apple.com/app-store/"> <img src="assets/img/apple-store.png" alt="app.store.com" class="download" style="width:12rem;"></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- footer -->
+    <%- include('partials/footer'); -%>
+
+    
+  <script>
+      const card1 = document.getElementById('card1');
+      const card2 = document.getElementById('card2');
+      const card3 = document.getElementById('card3');
+      
+      const btn1 = document.getElementById('btn1');
+      const btn2 = document.getElementById('btn2');
+      const btn3 = document.getElementById('btn3');
+
+      function show(btn){
+          if(btn == btn1){
+            card1.style.display = "flex"
+            card2.style.display = "none"
+            card3.style.display = "none"
+            btn.style.color = 'blue';
+            btn2.style.color = 'grey';
+            btn3.style.color = 'grey';
+          }
+          if(btn == btn2){
+            card1.style.display = "none"
+            card2.style.display = "flex"
+            card3.style.display = "none"
+            btn.style.color = 'blue';
+            btn1.style.color = 'grey';
+            btn3.style.color = 'grey';
+          }if(btn == btn3){
+            card1.style.display = "none"
+            card2.style.display = "none"
+            card3.style.display = "flex"
+            
+            btn.style.color = 'blue';
+            btn1.style.color = 'grey';
+            btn2.style.color = 'grey';
+          }
+
+
+      }
+      
+          
+          
+  </script>  
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="300x300"
+      href="assets/img/Icon1-02-300x300.png"
+    />
+    <!-- <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+      integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+      crossorigin="anonymous"
+    /> -->
+    <script src="https://www.google.com/recaptcha/api.js?hl=ar"></script>
+    <link rel="stylesheet" href="assets/css/auth.css" />
+    <script src="https://kit.fontawesome.com/cd80b326fb.js" crossorigin="anonymous"></script>
+    <script src="assets/js/auth.js"></script>
+    <title>سجل الدخول | تفقد بريدك الإلكتروني</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>رقم الهاتف</h1>
+      </div>
+
+
+      <div id="login-form">
+
+        
+          <div class="phone">
+            <h3>إضافة رقم الهاتف</h3>
+            <form action="" id="phoneForm">
+              <h4>أضف رقم هاتفك حتى تتمكن من الوصول الى حسابك</h4>
+              <div class="err" id="err">
+                <p>قمت بتسجيل الدخول كثيرا  <br>
+                  <span>مت بتسجيل الدخول كثيرا</span>
+                </p>
+                <!-- <i class="fa fa-times-circle"></i> -->
+                <div class="quitebtn">x</div>
+              </div>
+              <div class="phoneInput">
+                <input type="tel" required name="phoneNumber" placeholder="أدخل رقم الهاتف" id="phonenumber">
+                <p>213<span>+</span></p>
+                <input type="submit" value="أرسل الكود" id="confirmPhone">
+              </div>
+              <!-- <p>رقم هاتفك غير صحيح</p> -->
+              
+                <div
+                  class="g-recaptcha"
+                  data-sitekey="6LfeKgYgAAAAAMDzKGazwVTUU6Snw0JTr9bybABb"
+                ></div>
+              
+            </form>
+          </div>
+          <div  style="display: none;" class="phoneCode" id="phoneCode">
+            <p>ستصلك رسالة على هاتفك. قم بكتابة الكود هنا </p>
+            <form action="" id="codeForm">
+              <div class="err" id="errCode" style="display:none ;">
+                <p> <br><span></span></p>
+                <!-- <i class="fa fa-times-circle"></i> -->
+                <div class="quitebtn">x</div>
+              </div>
+              <input type="number" name="code" id="code">
+              <div id="hiddenPhone"></div>
+              <input type="submit" value="تأكيد" id="confirmCode">
+            </form>
+          </div>
+          
+      </div>
+
+    </div>
+    <script>
+
+
+      var err = document.getElementById('err')
+      document.getElementById('phoneForm').addEventListener('submit', e => {
+        e.preventDefault();
+        var btn = document.getElementById('confirmPhone')
+        btn.value = 'يتم الإرسال'
+        const phoneNumber = document.querySelector('#phonenumber').value;
+        const captcha = document.querySelector('#g-recaptcha-response').value;
+
+        return fetch('/validation', {
+          method: 'POST',
+          headers: { 'Content-type': 'application/json' },
+          body: JSON.stringify({ phoneNumber, captcha })
+        })
+          .then(res => res.json())
+          .then(data => {
+            btn.value = 'أرسل الكود'
+            console.log(data);
+            if (data.success == true){
+              err.innerHTML ='';
+              err.style.display = 'none'
+              document.getElementById('phoneCode').style.display = 'block';
+              document.getElementById('hiddenPhone').innerHTML = '<input type="hidden" name="phone" id="phoneN" value="'+ data.phone +'">'
+              console.log(document.getElementById('phoneN'))
+
+            }
+            if(data.success == false){
+              err.style.display = "flex";
+              err.innerHTML = '<p>'+ data.error +' <br><span>' + data.message + '</span></p> <!-- <i class="fa fa-times-circle"></i><div class="quitebtn">x</div>'
+            }
+          });
+      });
+
+
+      var errCode = document.getElementById('errCode')
+      
+      document.getElementById('codeForm').addEventListener('submit', e => {
+        e.preventDefault();
+        var btn = document.getElementById('confirmCode')
+        const phoneNumber = document.querySelector('#phoneN').value;
+        const code = document.querySelector('#code').value;
+        btn.value = 'يتم التأكيد'
+
+        return fetch('/validationCode', {
+          method: 'POST',
+          headers: { 'Content-type': 'application/json' },
+          body: JSON.stringify({ phoneNumber, code })
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            btn.value = 'تأكيد'
+            if (data.logged == 'addedSuccess'){
+              errCode.innerHTML ='';
+              errCode.style.display = 'none'
+              location.assign('/');
+            }
+            if(data.success == false){
+              errCode.style.display = "flex";
+              errCode.innerHTML = '<p>'+ data.error +' <br><span>' + data.message + '</span></p> <!-- <i class="fa fa-times-circle"></i><div class="quitebtn">x</div>'
+            }
+          });
+      });
+
+    </script>
+  </body>
+</html>

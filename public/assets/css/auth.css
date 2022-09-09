@@ -1,0 +1,621 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Quicksand");
+@import url("https://fonts.googleapis.com/css2?family=Tajawal&display=swap");
+
+* {
+  font-family: "Open-Sans";
+  box-sizing: border-box;
+  font-weight: 600;
+}
+
+body {
+  background: #f4f4f4;
+  background-image: url(../img/pattern.png);
+}
+
+h3 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+.container {
+  position: relative;
+  width: 450px;
+  height: auto;
+  margin-top: 4em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.2);
+}
+.input-control.success input {
+  border-color: #09c372;
+}
+
+.input-control.error input {
+  border-color: #ff3860;
+}
+
+
+
+.container button {
+  cursor: pointer;
+  position: relative;
+  text-transform: capitalize;
+  font-size: 1em;
+  z-index: 2;
+  outline: none;
+  background: #fff;
+  transition: 0.2s;
+}
+
+.container .btn {
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 0.8em 1em 0.8em 1em !important;
+  transition: 0.5s;
+  border: 1px solid #ebebeb;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+.container .login,
+.container .signup {
+  background: #00b2bc;
+  color: #fff;
+}
+
+.container .login:hover,
+.container .signup:hover {
+  background: #222;
+}
+
+.form-toggle {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.form-toggle button {
+  width: 50%;
+  float: left;
+  padding: 1.5em;
+  margin-bottom: 1.5em;
+  border: none;
+  transition: 0.2s;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.form-toggle button:nth-child(1) {
+  border-top-right-radius: 0px;
+
+  border-bottom-right-radius: 20px;
+}
+
+.form-toggle button:nth-child(2) {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 20px;
+}
+
+#login-toggle {
+  background: #00b2bc;
+  color: #ffff;
+}
+
+.container form {
+  position: relative;
+  width: 90%;
+  height: auto;
+  left: 50%;
+  direction: rtl;
+  transform: translateX(-50%);
+}
+
+#login-form,
+#signup-form {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding-bottom: 1em;
+}
+
+#signup-form {
+  display: none;
+}
+
+#login-form button,
+#signup-form button {
+  width: 100%;
+  margin-top: 0.5em;
+  padding: 0.6em;
+}
+
+.container input {
+  position: relative;
+  width: 100%;
+  font-size: 1em;
+  padding: 1.2em 1.7em 1.2em 1.7em;
+  margin-top: 0.6em;
+  margin-bottom: 0.2em;
+  border-radius: 20px;
+  border: none;
+  background: #ebebeb;
+  outline: none;
+  font-weight: 700;
+  transition: 0.4s;
+  
+  
+  
+}
+
+.container input:focus,
+.container input:active {
+  transform: scaleX(1.02);
+}
+
+.container input::-webkit-input-placeholder {
+  color: rgba(27, 27, 27, 0.699);
+}
+
+.container p {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0% ;
+  padding-right: 1.5em;
+  font-family: 'Tajawal', sans-serif;
+}.container p strong{
+  font-size: 14px;
+  font-family: 'Tajawal', sans-serif;
+}
+
+.container p a {
+  color: #00b2bc;
+  text-align: right;
+  text-decoration: none;
+  transition: 0.2s;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 14px;
+
+}
+
+.container p a:hover {
+  color: #222;
+}
+.input-control{
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    position: relative;
+    padding-top: 0px;
+}
+.error{
+    margin: 0%;
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+}
+.error p {
+    margin: 0%;
+    color: rgb(214, 16, 16);
+    font-size:medium;
+    font-family: 'Tajawal', sans-serif;    
+    text-align: left;
+}
+label{
+    color: #00b2bc;
+    font-family: 'Tajawal', sans-serif;
+    font-size: medium;
+    animation: label 0.2s ease-in-out;
+    transition: 1s;
+    position: absolute;
+    bottom: 75px;
+    right: 10px;
+    z-index: 90;
+    display: none;
+    
+    
+}
+.info{
+  width: 90%;
+  margin: 10px 5%;
+  padding-right: 20px;
+}
+.info h3{
+  font-size: 25px;
+  text-align: right;
+
+}
+.info p{
+  font-size: 17px;
+  text-align: right;
+  padding-right: 0%;
+  
+}
+
+.passwordReset h3{
+  font-family: 'Tajawal', sans-serif;
+  font-size: 18px;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+.passwordReset .err{
+  color: rgb(202, 29, 29);
+  font-family: "Tajawal", sans-serif;
+  text-align: left;
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+.passwordReset button{
+  border-radius: 4px;
+  border: 2px solid #00b2bc;
+  background-color: #00b2bc;
+  color: white;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 15px;
+}.passwordReset button:hover{
+  border: 2px solid #049299;
+  background-color: #049299;
+}
+.userInfo{
+  background-color: #00b3bc21;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 20px;
+}
+.userInfo h2{
+  font-family: 'Tajawal', sans-serif;
+  font-size: 18px;
+  margin-bottom: 40px;
+  font-weight: 600;
+  text-align: right;
+  margin-top: 0%;
+  padding-top: 0%;
+  
+}.userInfo p, .userInfo strong{
+  font-family: 'Tajawal', sans-serif;
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: right;
+  margin-top: 0%;
+  padding-top: 0%;
+  padding-left: 5px;
+  
+}
+.resetBtn{
+  display: flex;
+  flex-direction: row-reverse;
+}
+.resetBtn button,.resetBtn a {
+  width: 46%;
+  margin:0% 2%;
+  border: #00b2bc 2px solid;
+  font-family: 'Tajawal', sans-serif;
+}
+#changePwd{
+  background-color: #00b2bc;
+  color: white;
+}
+#notMe{
+  color: #00b2bc;
+  background-color: white;
+  text-decoration-line: none;
+}
+
+@keyframes label{
+    0%{
+        bottom: 50px;
+
+    }
+    100%{
+        bottom: 75px;
+    }
+}
+
+.header{
+  background-color: #00b2bc;
+  margin-bottom: 20px;
+  border-radius: 10px 10px 0px 0px;
+}
+.header h1{
+  text-align: center;
+  font-family: 'Tajawal', sans-serif;
+  color: white;
+  font-size: large;
+  padding: 30px 0%;
+}
+.actionContainer{
+  height: 250px;
+}
+.btns{
+  padding: 5px 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+#homebtn{
+  background-color: #00b2bc;
+  color: white;
+  width: 40%;
+  margin: 0% 2%;
+  border: 2px solid #00b2bc ;
+}
+#homebtn:hover{
+  background-color: #02888f;
+  border-color: #02888f;
+}
+#loginbtn{
+  border: 2px solid #00b2bc ;
+
+  margin: 0% 2%;
+  background-color: white;
+  color: #00b2bc;
+  width: 40%;
+}
+#loginbtn:hover{
+  background-color: #02888f;
+  border-color: #02888f;
+  color: white;
+}
+
+
+/* ---- phone ---- */
+.phone{
+  padding-top: 20px;
+}
+.phone h3{
+  font-size: large;
+  color: black;
+  font-weight: 600;
+  font-family: "Tajawal", sans-serif;
+  text-align: right;
+  margin: 0% 20px;
+  padding: 0%;
+}.phone h4{
+  font-size: medium;
+  color: rgba(0, 0, 0, 0.63);
+  font-weight: 600;
+  font-family: "Tajawal", sans-serif;
+  text-align: right;
+  margin: 5% 0px;
+  padding: 0%;
+}.phone p{
+  font-size: medium;
+  color: rgba(221, 69, 69, 0.63);
+  font-weight: 600;
+  font-family: "Tajawal", sans-serif;
+  text-align: left;
+  margin: 0% 0px;
+  padding: 0%;
+  width: 60%;
+ 
+
+}
+.phoneInput{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+.phoneInput #phonenumber{
+  border-radius: 0px;
+  padding: 10px;
+  margin: 0px 0% 10px 0px;
+  width: 67%;
+  text-align: right;
+  height: 100%;
+  font-size: 18px;
+  font-family: "Tajawal", sans-serif;
+  border-bottom: 1px solid #00000071;
+
+}.phoneInput #confirmPhone{
+  border-radius: 0px;
+  margin: 0px 3% 0px 0%;
+  width: 25%;
+  color: white;
+  background-color: #00b2bc;
+  font-size: medium;
+  font-family: 'Tajawal', sans-serif;
+  text-align: center;
+  padding: 0%;
+  height: 100%;
+  cursor: pointer;
+}
+.phoneInput p{
+  border-radius: 0px;
+  margin: 0px 0% 0px 0%;
+  width: 15%;
+  color: white;
+  background-color: #00b3bca2;
+  font-size: 20px;
+  font-family: 'Tajawal', sans-serif;
+  text-align: center;
+  align-self: center;
+  padding: 6px 0px;
+  
+}
+.phoneCode{
+  border-top: 1px solid #00b2bc;
+  margin: 40px 20px 0px 20px;
+}
+.phoneCode p{
+  border-radius: 0px;
+  color: rgba(0, 0, 0, 0.801);
+  font-size: 15px;
+  font-family: 'Tajawal', sans-serif;
+  text-align: right;
+  margin-right: 0px;
+  font-weight: 600;
+  padding-right: 0px;
+  padding-top: 10px;
+}
+.phoneCode input{
+  border-radius: 0px;
+  padding: 10px;
+  margin: 20px 15% 0px 15%;
+  width: 70%;
+  text-align: right;
+  height: 100%;
+  font-size: 18px;
+  font-family: "Tajawal", sans-serif;
+  border-bottom: 1px solid #00000071;
+
+}
+.phoneCode [type=submit]{
+  border-radius: 0px;
+  color: white;
+  background-color: #00b2bc;
+  font-size: medium;
+  font-family: 'Tajawal', sans-serif;
+  text-align: center;
+  padding: 10px;
+  height: 100%;
+  cursor: pointer;
+  margin-top: 10px;
+  border: none;
+}
+/* .phoneCode form p{
+  border-radius: 0px;
+  margin: 0px 0% 0px 0%;
+  color: rgba(253, 19, 19, 0.527);
+  font-size: 20px;
+  font-family: 'Tajawal', sans-serif;
+  text-align: center;
+  padding: 0px 0px;
+  font-size: medium;
+  
+} */
+.err{
+  width: 100%;
+  margin: 10px 0%;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  position: relative;
+  height: 70px;
+  display: none;
+
+}
+.err p{
+  background-color: rgb(243, 232, 232);
+  width: 100%;
+  text-align: right;
+  font-size: 16px;
+  padding: 10px 0px;
+  padding-right: 20px;
+  color: black;
+  border-right: 3px solid red;
+
+}.err p span{
+  background-color: rgb(243, 232, 232);
+  color: black;
+  font-family: "Tajawal", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+
+}
+/* .err i{
+  background-color: #ffcdcd;
+  color: rgb(236, 94, 94);
+  width: 10%;
+  font-size: 20px;
+  text-align: center;
+  height: 100%;
+  align-items: center;
+  padding: 20px 0px;
+} */
+.quitebtn{
+  position: absolute;
+  top: 3px;
+  left: 10px;
+  font-family: "Tajawal", sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+
+
+
+/* -popup */
+
+.popup{
+  position: absolute;
+  top: 180px;
+  left: 0px;
+  height:15vh;
+  width:100%;
+  animation: popup 0.4s ease-in-out;
+  
+}
+.popupContainer{
+  width: 300px;
+  margin: auto;
+  background-color: #fffdfd;
+  padding: 10px ;
+  text-align: center;
+  box-shadow: 0px 0px 5px 1px  rgba(0, 0, 0, 0.301);
+  border-radius: 5px;
+}
+.popupContainer i{
+  color: #00b2bc;
+  font-size: 25px;
+  display: none;
+}.popupContainer h2{
+  color: #000000;
+  font-size: 18px;
+  font-family: 'Tajawal', sans-serif;
+}.popupContainer p{
+  color: #000000aa;
+  font-size: 13px;
+  font-family: 'Tajawal', sans-serif;
+}.popupContainer button{
+  color: #000000aa;
+  padding: 5px 10px;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 15px;
+  color: white;
+  background-color: #00b2bc;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+@keyframes popup{
+  0%{top: 0px}
+  60%{top: 190px}
+  80%{top: 160px}
+  100%{top: 180px}
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  i {
+    display: none !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #cdcdcd;
+}
+::-webkit-scrollbar-thumb {
+  background: #02ccd6;
+  border-radius: 8px;
+}
+::-webkit-scrollbar::before {
+  display: none;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00b2bc;
+}
